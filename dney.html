@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Son Baktıklarım</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dney.css">
+</head>
+<body>
+
+<!-- Üç Adet Yan Yana Div -->
+<div class="container">
+    <div class="box" onclick="addToRecentlyViewed('images/sparen img-1-01.webp', 'images/sparen-img-1-02.webp', 'SIFUPLEX', 'Sifuplex Heißluftfritteuse ASF70 6,5 Liter', '€129,00', '€199,00')">
+        <h3 class="sparen-h3">Sie sparen €70,00</h3>
+        <div class="image-wrapper">
+            <img src="images/sparen img-1-01.webp" alt="First Image" class="top-image">
+            <img src="images/sparen-img-1-02.webp" alt="Second Image" class="bottom-image">
+        </div>
+        <div class="box-content">
+            <h3 class="box-title">SIFUPLEX</h3>
+            <p class="box-description">Sifuplex Heißluftfritteuse ASF70 6,5 Liter</p>
+            <p class="box-price">€129,00 <span>€199,00</span></p>
+        </div>
+    </div>
+    <div class="box" onclick="addToRecentlyViewed('images/sparen-img-2-01.webp', 'images/sparen-img-2-02.webp', 'SIFUPLEX', 'Heißluftfritteuse ASF80 light 4,5 Liter', '€99,00', '€139,00')">
+        <h3 class="sparen-h3">Sie sparen €40,00</h3>
+        <div class="image-wrapper">
+            <img src="images/sparen-img-2-01.webp" alt="First Image" class="top-image">
+            <img src="images/sparen-img-2-02.webp" alt="Second Image" class="bottom-image">
+        </div>
+        <div class="box-content">
+            <h3 class="box-title">SIFUPLEX</h3>
+            <p class="box-description">Heißluftfritteuse ASF80 light 4,5 Liter</p>
+            <p class="box-price">€99,00 <span>€139,00</span></p>
+        </div>
+    </div>
+    <div class="box" onclick="addToRecentlyViewed('images/sparen-img-3-01.webp', 'images/sparen-img-3-02.webp', 'SIFUPLEX', 'Akkustaubsauger VSF13', '€197,00', '€249,00')">
+        <h3 class="sparen-h3">Sie sparen €52,00</h3>
+        <div class="image-wrapper">
+            <img src="images/sparen-img-3-01.webp" alt="First Image" class="top-image">
+            <img src="images/sparen-img-3-02.webp" alt="Second Image" class="bottom-image">
+        </div>
+        <div class="box-content">
+            <h3 class="box-title">SIFUPLEX</h3>
+            <p class="box-description">Akkustaubsauger VSF13</p>
+            <p class="box-price">€197,00 <span>€249,00</span></p>
+        </div>
+    </div>
+</div>
+
+<!-- Son Baktıklarım Bölümü -->
+<div id="recently-viewed" style="display:none;">
+    <h3>Son Baktıklarım</h3>
+    <div id="recently-viewed-items">
+        <!-- Burada dinamik olarak tıklanan resimler görünecek -->
+    </div>
+</div>
+
+<script>
+  let recentlyViewed = [];
+
+function addToRecentlyViewed(topImage, bottomImage, title, description, price, oldPrice) {
+    // Ürün bilgilerini son bakılanlar listesine ekle
+    recentlyViewed.push({ topImage, bottomImage, title, description, price, oldPrice });
+
+    // "Son Baktıklarım" bölümünü görünür yap
+    document.getElementById('recently-viewed').style.display = 'block';
+    
+    // "Son Baktıklarım" bölümüne ürünleri ekle
+    let viewedItemsHTML = '';
+    recentlyViewed.forEach(function (viewedItem) {
+        viewedItemsHTML += `
+            <div class="recent-item">
+                <div class="image-wrapper">
+                    <img src="${viewedItem.topImage}" alt="First Image" class="top-image">
+                    <img src="${viewedItem.bottomImage}" alt="Second Image" class="bottom-image">
+                </div>
+                <h3>${viewedItem.title}</h3>
+                <p>${viewedItem.description}</p>
+                <p>${viewedItem.price} <span>${viewedItem.oldPrice}</span></p>
+            </div>
+        `;
+    });
+
+    document.getElementById('recently-viewed-items').innerHTML = viewedItemsHTML;
+}
+
+</script>
+</body>
+</html>
+

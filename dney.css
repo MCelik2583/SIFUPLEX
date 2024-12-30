@@ -1,0 +1,62 @@
+/* Genel stil ayarları */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 2500px;
+}
+
+/* Ürünleri yan yana hizalamak için container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Ürün div'inin stilini ayarlama */
+.box {
+    width: 30%;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Ürüne tıklayınca küçük bir efekt ekleme */
+.box:hover {
+    transform: scale(1.05);
+}
+
+/* Son Baktıklarım bölümünün stilini ayarlama */
+#recently-viewed {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#recently-viewed-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#recently-viewed-items div {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+#recently-viewed-items img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
